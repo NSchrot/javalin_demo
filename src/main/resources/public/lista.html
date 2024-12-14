@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
-    <title>Minha Agenda</title>
+    <title>Lista de Contatos</title>
 </head>
 <body>
-    <h1>Minha Agenda</h1>
-    
-    <a href="/cadastro"><button class="button-27">Cadastrar</button></a>
-    <a href="/lista"><button class="button-27">Lista</button></a>
+    <ul>
+    <#list lista as pessoa>
+        <li>${pessoa.nome} - ${pessoa.email} - ${pessoa.telefone}</li>
+    </#list>
+    </ul>
 </body>
 </html>

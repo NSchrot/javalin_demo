@@ -2,18 +2,24 @@ package br.edu.ifpr.pgua.eic.tads.models;
 
 public class Pessoa {
     private String nome;
-    private String cpf;
+    private String email;
+    private String telefone;
 
-    public Pessoa(String nome, String cpf){
+    public Pessoa(String nome, String email, String telefone) {
         this.nome = nome;
-        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
     }
 
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
 
-    public String getCpf(){
-        return this.cpf;
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getTelefone() {
+        return this.telefone;
     }
 }
