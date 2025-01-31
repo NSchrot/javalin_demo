@@ -18,6 +18,13 @@
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
+  <repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+
+	</repositories>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -51,6 +58,12 @@
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.33</version>
 </dependency>
+ 
+  <dependency>
+    <groupId>com.github.hugoperlin</groupId>
+    <artifactId>results</artifactId>
+    <version>1.0.1</version>
+  </dependency>
 
   </dependencies>
 

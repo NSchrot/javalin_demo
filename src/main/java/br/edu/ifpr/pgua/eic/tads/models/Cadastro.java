@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.hugoperlin.results.Resultado;
+
 public class Cadastro {
     private List<Pessoa> pessoas;
 
@@ -15,10 +17,9 @@ public class Cadastro {
         pessoas = new ArrayList<>();
     }
 
-    public void add(Pessoa p) {
+    public Resultado<Pessoa> add(Pessoa p) {
 
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://URL/BANCO",
-                "USUARIO", "SENHA")) {
+        try (Connection con = FabricaConexao.getInstance().getConnection()){
 
             System.out.println("Conectado!!");
             String sql = "INSERT INTO oo_contatos(nome,email,telefone) VALUES (?,?,?)";
@@ -30,13 +31,14 @@ public class Cadastro {
 
             int res = pstm.executeUpdate();
             if (res == 1) {
-                System.out.println("Inserido!");
+                this.pessoas.add(p);
+                return Resultado.sucesso("Pessoa inserida!",p);
             } else {
-                System.out.println("Não Inserido!");
+                return Resultado.erro("Problema no Banco de Dados");
             }
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            return Resultado.erro(e.getMessage());
         }
 
         /* this.pessoas.add(p); */
